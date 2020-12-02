@@ -26,7 +26,7 @@ group by rating
 use Crime
 select LocationOfOccurance, count(*) as 'place'
 from NewYork
---where LocationOfOccurance is not like '0'  ---why does this not work??
+where LocationOfOccurance  != '0'  
 group by LocationOfOccurance
 order by count(*) desc
 
@@ -35,15 +35,34 @@ from NewYork
 order by Attempted
 
 use sakila
-select special_features , count(*) as 'extras' , rating 
+select special_features , count(*) as 'extras' , rating
 from film
-group by special_features
-order by count (*) , rating
+group by special_features , rating 
+order by count (*) 
+
+use Crime
+select OffenseDesc, count(*) as 'Offense count'
+from NewYork
+where OffenseDesc != '0'
+group by OffenseDesc
+order by count(*) desc
+
+use Crime
+select Borough, count(*) 
+from NewYork
+group by Borough
+order by count(*) desc
+
+use World
+select Continent,FORMAT(avg(GNP),2) as 'Avg GNP'
+from country 
+group by Continent
 
 
 
 
-
+select datepart(hour,fromtime) as "Hour", datepart(WEEKDAY,fromdate) as "Day of Week"
+from NewYork 
 
 
 
