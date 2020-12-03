@@ -1,4 +1,4 @@
-
+use World
 select city.Name , city.District as 'district or state'
 , country.Name as country
 from city
