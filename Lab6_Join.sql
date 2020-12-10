@@ -32,6 +32,8 @@ from country as C
 join countrylanguage as CL on CL.CountryCode = C.code
 order by C.Name
 
-select country.name, Capital, city.name
+use World
+select country.name as 'country' , Capital, city.name as 'city'
 from country
 join city on city.ID = country.Capital;
+
